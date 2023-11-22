@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+
+
+  amystudiodb:
+    image: mysql:8.0.33
+    restart: always
+    environment:
+      MYSQL_DATABASE: "amy_db"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "barujHashem"
+      MYSQL_ROOT_PASSWORD: "admin"
+      MYSQL_HOST: amystudiodb
+    ports:
+      - '2205:3306'
+    expose:
+      - "2205"
+    volumes:
+      - amystudio-data:/var/lib/mysql
+    networks:
+      - amystudio-network
+
+volumes:
+  amystudio-data:
+
+
+networks:
+  amystudio-network:
