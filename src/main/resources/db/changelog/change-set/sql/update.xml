@@ -8,5 +8,6 @@
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="2023/2023-11-22.xml" relativeToChangelogFile="true"></include>
+    <include file="2023/2023-11-23.xml" relativeToChangelogFile="true"></include>
 
 </databaseChangeLog>

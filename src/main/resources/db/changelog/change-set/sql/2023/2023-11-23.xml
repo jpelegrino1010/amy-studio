@@ -1,0 +1,131 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+
+    <changeSet author="julioluis" id="jl-2023-11-23-01">
+        <sql>
+            ALTER TABLE user MODIFY COLUMN password VARCHAR(200);
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-02">
+        <sql>
+            INSERT INTO rol(description,create_at,create_by,updated_at,updated_by)
+             VALUES('ADMIN',now(),'System',null,null)
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-03">
+        <sql>
+            INSERT INTO authorities(description,create_at,create_by,updated_at,updated_by)
+            VALUES('catalog',now(),'System',null,null)
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-04">
+        <sql>
+            INSERT INTO rol_auth(rol_id,authority_id) VALUES(1,1)
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-05">
+        <sql>
+            INSERT INTO user(first_name,last_name,email,password,rol_id,create_at,create_by,updated_at,updated_by)
+            VALUES('Amanda','Rojas','amanda@amystudio.com',
+                   '$2a$12$Hq40.kCGwhiMEuAVhMnaB.qiyYDwHAg6CD/NfRpHfnmWbm9i0VhFS',
+                   1,now(),'System',null,null)
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-06">
+        <sql>
+            ALTER TABLE user RENAME COLUMN create_at TO created_at ;
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-07">
+        <sql>
+            ALTER TABLE rol RENAME COLUMN create_at TO created_at ;
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-08">
+        <sql>
+            ALTER TABLE authorities RENAME COLUMN create_at TO created_at ;
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-09">
+        <sql>
+            ALTER TABLE user RENAME COLUMN create_by TO created_by ;
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-10">
+        <sql>
+            ALTER TABLE rol RENAME COLUMN create_by TO created_by ;
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-11">
+        <sql>
+            ALTER TABLE authorities RENAME COLUMN create_by TO created_by ;
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-12">
+        <sql>
+            update user set deleted=0 where id=1;
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-13">
+        <sql>
+            update rol set deleted=0 where id=1;
+
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="julioluis" id="jl-2023-11-23-14">
+        <sql>
+            update authorities set deleted=0 where id=1;
+
+        </sql>
+
+    </changeSet>
+
+
+
+</databaseChangeLog>
