@@ -3,11 +3,13 @@ package com.julioluis.amystudio.entities;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 
 @Entity
 @Data
-public class User extends BaseEntity {
+@Table(name = "user")
+public class Users extends BaseEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
