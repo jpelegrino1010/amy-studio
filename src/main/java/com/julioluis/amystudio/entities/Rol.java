@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "rol")
 @Data
-public class Rol implements Serializable {
+public class Rol extends BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
