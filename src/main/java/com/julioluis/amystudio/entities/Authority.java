@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "authorities")
 @Data
-public class Authority implements Serializable {
+public class Authority extends BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
